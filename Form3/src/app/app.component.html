@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="OnSubmit()" class="max-w-md mx-auto mt-8">
+  <div class="mb-6">
+    <label for="projectname" class="block mb-2 text-sm font-bold text-gray-700">Project Name</label>
+    <input id="projectname" type="text" formControlName="ProjectName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+  </div>
+  <div class="mb-6">
+    <label for="email" class="block mb-2 text-sm font-bold text-gray-700">Mail</label>
+    <input id="email" type="email" formControlName="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+  </div>
+  <div class="mb-6">
+    <label for="Projectstatus" class="block mb-2 text-sm font-bold text-gray-700">Project Status</label>
+    <select formControlName="ProjectStatus" id="Projectstatus" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+      <option value="Stable">Stable</option>
+      <option value="Critical">Critical</option>
+      <option value="Finished">Finished</option>
+    </select>
+  </div>
+  <div>
+    <button type="submit"  
+     class="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none" 
+     [disabled]="form.invalid" >Submit</button>
+    
+     
+  </div> 
+  <div>
+    <span   style="color: red;"*ngIf="form.invalid && form.touched">
+    !!! Data will not Submitted |
+     Pleaze Enter A Valid Data
+    </span></div>
+
+</form>
